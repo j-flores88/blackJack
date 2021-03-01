@@ -12,11 +12,7 @@ const playerHandTotal = document.getElementById('playerHandTotal')
 const suitImages = document.getElementById('suitImgs')
 const deck = {
     values: [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'Ace'],
-    suits: ['Diamonds', 'Spades', 'Clubs', 'Hearts'],
-    heart: document.getElementById('heartImg'),
-    diamond: document.getElementById('diamondsImg'),
-    spade: document.getElementById('spadesImg'),
-    club: document.getElementById('clubsImg')
+    suits: ['Diamonds', 'Spades', 'Clubs', 'Hearts']
 }
 
 const getCardValue = () => {
@@ -75,7 +71,6 @@ const drawCard = () => {
 }
 
 const updateDis = (value, suit) => {
-    console.log(value, suit)
     let cardSpan = document.createElement('span');
     cardSpan.innerHTML = ` ${value}`, cardSpan.appendChild(suit)
     playerHandTotal.innerText = `Total: ${handValue}`
