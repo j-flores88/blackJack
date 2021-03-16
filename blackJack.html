@@ -10,10 +10,16 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <button id="dealHand">DEAL</button>
-    <button id="hitButton">HIT</button>
-    <span id="playerHand"></span>
-    <span id="playerHandTotal"></span>
+    <button id="singleDeck">SINGLE DECK</button>
+    <div id="playerSection">
+        <span id="playerHand"></span>
+        <span id="playerHandTotal"></span>
+            <div id="playerButtons">
+                <button id="dealHand">DEAL</button>
+                <button id="hitButton">HIT</button>
+                <button id="stayButton">STAY</button>
+            </div>
+    </div>
     <span id="dealerHand"></span>
 </body>
 </html>
