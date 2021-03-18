@@ -1,9 +1,5 @@
-let cardNumber;
 let cardValue;
-let cardSuit;
 let handValue = 0;
-
-
 
 const dealButton = document.getElementById('dealHand')
 const hitButton = document.getElementById('hitButton')
@@ -46,23 +42,20 @@ const gameDeck = {
             [deck[i], deck[j]] = [deck[j], deck[i]];
         }
     },
-    updateDisplay(card) {
+    updateDisplay({value, suit}) {
         let img = document.createElement('img');
         img.style.width = '20px'
-    
-        cardNumber = card.value
-        cardSuit = card.suit
-    
-        if(cardNumber === 'J' || cardNumber === 'Q' || cardNumber === 'K') {
+
+        if(value === 'J' || value === 'Q' || value === 'K') {
             cardValue = 10;
-        } else if (cardNumber === 'Ace') {
+        } else if (value === 'Ace') {
             cardValue = 11;
         } else {
-            cardValue = cardNumber
+            cardValue = value
         }
         handValue += cardValue
     
-        switch(cardSuit) {
+        switch(suit) {
             case 'Hearts':
                 img.setAttribute('src', "./imgs/hearts.png");
                 img.setAttribute('class', 'red')
@@ -79,12 +72,14 @@ const gameDeck = {
                 break;
         }
         let cardSpan = document.createElement('span');
-        cardSpan.innerHTML = `${cardNumber}`, cardSpan.appendChild(img)
+        cardSpan.innerHTML = `${value}`, cardSpan.appendChild(img)
         playerHandTotal.innerText = `Total: ${handValue}`
         if(img.classList.contains('red')) {
             cardSpan.style.color = 'red'
         }
         playerDisplay.append(cardSpan)
+    },
+    clearDisplay() {
     }
 }
 
@@ -93,6 +88,7 @@ singleDeckBtn.onclick = () => {
     gameDeck.shuffleDeck();
 }
 dealButton.onclick = () => {
+    //clearDisplay()
     playerDisplay.innerText = ''
     handValue = 0;
     gameDeck.hand = [];
